@@ -80,17 +80,76 @@ jhhjkm.m,.m.,
 
 ##Complex data types
     # list(value can change),tuple(unable to change the value),range(start,end,increment) - order wise 
-listing = [100,200,300,400]
-print(listing[-1])
-listing[2]="Hello"
-print(listing)
-# tuple
-values = ("yamaha",2012,"cjks895222121")
-print(values)
-ranging = range(10.5,12.5,0.2)
-print(list(ranging))
-# values[0] = "Hero"
+# listing = [100,200,300,400]
+# print(listing[-1])
+# listing[2]="Hello"
+# print(listing)
+# # tuple
+# values = ("yamaha",2012,"cjks895222121")
 # print(values)
-    # set,dictionary
+# # ranging = range(10.5,12.5,0.2)
+# # print(list(ranging))
+# # values[0] = "Hero"
+# # print(values)
+#     # set,dictionary
+# sets = {100,100,150,200,150}
+# print(sets)
 
 
+modelNumber = {
+    "modelYear":2000,
+    "modelName":"Honda",
+    "model_type":"passion",
+    }
+
+modelNumbers = [
+    {
+    "modelYear":2000,
+    "modelName":"Honda",
+    "model_type":"Unicorn",
+    }
+]
+newModel = {
+    "modelYear":2010,
+    "modelName":"Hero",
+    "model_type":"passion",
+}
+newModel["model"] = "jhhkhh"
+del newModel["modelYear"]
+print(newModel)
+modelNumbers.append(newModel)
+print(modelNumbers)
+print(modelNumber["model_type"])
+
+# if
+age = 10
+if age>=18:
+    print("The are adult")
+elif age<10 and age<=18:
+    print("He is Teenager")
+else :
+    print("He is child")
+
+
+text = input("Enter the text")
+
+reversed = text[::-2]
+
+# : start point from last value
+#: end point upto first value
+#-1 minius the index value position
+
+print(text)
+print(reversed)
+
+if reversed==text:
+    print("Palindrome")
+else:
+    print("Not a Palindrome")
+
+
+lists = ["ndjknkj4411444","jkjjk1524752","jkjjk1524745454"]
+
+# Hello
+    # -1=0
+    # -2=l
