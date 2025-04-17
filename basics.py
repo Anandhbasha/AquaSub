@@ -116,40 +116,84 @@ newModel = {
 }
 newModel["model"] = "jhhkhh"
 del newModel["modelYear"]
-print(newModel)
-modelNumbers.append(newModel)
-print(modelNumbers)
-print(modelNumber["model_type"])
+# print(newModel)
+# modelNumbers.append(newModel)
+# print(modelNumbers)
+# print(modelNumber["model_type"])
 
-# if
-age = 10
-if age>=18:
-    print("The are adult")
-elif age<10 and age<=18:
-    print("He is Teenager")
-else :
-    print("He is child")
-
-
-text = input("Enter the text")
-
-reversed = text[::-2]
-
-# : start point from last value
-#: end point upto first value
-#-1 minius the index value position
-
-print(text)
-print(reversed)
-
-if reversed==text:
-    print("Palindrome")
-else:
-    print("Not a Palindrome")
+# # if
+# age = 10
+# if age>=18:
+#     print("The are adult")
+# elif age<10 and age<=18:
+#     print("He is Teenager")
+# else :
+#     print("He is child")
 
 
-lists = ["ndjknkj4411444","jkjjk1524752","jkjjk1524745454"]
+# text = input("Enter the text")
+
+# reversed = text[::-2]
+
+# # : start point from last value
+# #: end point upto first value
+# #-1 minius the index value position
+
+# print(text)
+# print(reversed)
+
+# if reversed==text:
+#     print("Palindrome")
+# else:
+#     print("Not a Palindrome")
+
+
+# lists = ["ndjknkj4411444","jkjjk1524752","jkjjk1524745454"]
 
 # Hello
     # -1=0
     # -2=l
+
+#for
+# listNums = [4,5,8,8,9,10]
+# for index,value in enumerate(listNums):
+#     print(index)
+
+
+
+# modelNumber = {
+#     "modelYear":2000,
+#     "modelName":"Honda",
+#     "model_type":"passion",
+#     }
+# for key in modelNumber.items():
+#     print(key)
+# power = [x**2 for x in range(10)]
+
+# print(power)
+# #break
+# for x in range(10):
+#     if x==2:
+#         break
+#     print(x)
+
+# #continue
+# for x in range(10):
+#     if x==2:
+#         print(x)
+#         continue
+#     print(x)
+# #pass
+# for x in range(10):
+#     if x==2:
+#         pass
+#     print(x)
+# #create a list
+count = 0
+with open("hello.txt") as localvar:
+    for line in localvar:
+        words = line.lower().split()
+        if words=="thanks":
+            count+=words.count("thanks")
+            print(line.strip())
+print(count)
