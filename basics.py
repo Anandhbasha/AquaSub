@@ -188,12 +188,31 @@ del newModel["modelYear"]
 #     if x==2:
 #         pass
 #     print(x)
-# #create a list
-count = 0
-with open("hello.txt") as localvar:
-    for line in localvar:
-        words = line.lower().split()
-        if words=="thanks":
-            count+=words.count("thanks")
-            print(line.strip())
-print(count)
+# # #create a list
+# count = 0
+# with open("hello.txt") as localvar:
+#     for line in localvar:
+#         words = line.lower().split()
+#         if words=="thanks":
+#             count+=words.count("thanks")
+#             print(line.strip())
+# print(count)
+# read
+# with open("hello.txt",'r') as file:
+#     content = file.read()
+#     print(content)
+# #f string Method
+# value = 10
+# value2=20
+# print(f'The value is {value} \b The second value is{value2} ')
+# write
+addnewText = ""
+# with open("hello.txt",'w') as file:
+#     file.write(addnewText)
+#     print(f'The added new text is{addnewText}')
+
+
+with open(f'{addnewText}.py','w') as addnew:
+    addnew.write("hello")
+# replace
+#append
