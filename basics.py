@@ -206,13 +206,36 @@ del newModel["modelYear"]
 # value2=20
 # print(f'The value is {value} \b The second value is{value2} ')
 # write
-addnewText = ""
+# addnewText = ""
 # with open("hello.txt",'w') as file:
 #     file.write(addnewText)
 #     print(f'The added new text is{addnewText}')
 
 
-with open(f'{addnewText}.py','w') as addnew:
-    addnew.write("hello")
+# with open(f'{addnewText}.py','w') as addnew:
+#     addnew.write("hello")
+import re
+userinput = str(input("Enter the word to search :"))
+# found = False
+# with open("Python_course.txt",'r') as file:
+#     for line in file:
+#         if re.search(rf'\b{userinput}\b',line):
+#             print("Match Found")
+#             print(f'The enterd word is in {line}')
+#             found = True
+#             break
+#     if not found:
+#         print("Match Not found")
+
 # replace
+
+# with open("Python_course.txt",'r') as file:
+#     newcontent = file.read()
+# repalceContent =newcontent.replace(userinput,"worked")
+# with open("Python_course.txt",'w') as file:
+#     file.write(repalceContent)
+#     print(f'Entered Text {repalceContent}replaced Sucessfully')
 #append
+with open("Python_course.txt",'a') as file:
+    file.write(f'\n {userinput}')
+print("Apped text succesfully")
