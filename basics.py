@@ -214,8 +214,8 @@ del newModel["modelYear"]
 
 # with open(f'{addnewText}.py','w') as addnew:
 #     addnew.write("hello")
-import re
-userinput = str(input("Enter the word to search :"))
+# import re
+# userinput = str(input("Enter the word to search :"))
 # found = False
 # with open("Python_course.txt",'r') as file:
 #     for line in file:
@@ -236,6 +236,7 @@ userinput = str(input("Enter the word to search :"))
 #     file.write(repalceContent)
 #     print(f'Entered Text {repalceContent}replaced Sucessfully')
 #append
-with open("Python_course.txt",'a') as file:
-    file.write(f'\n {userinput}')
-print("Apped text succesfully")
+# with open("Python_course.txt",'a') as file:
+#     file.write(f'\n {userinput}')
+# print("Apped text succesfully")
+
