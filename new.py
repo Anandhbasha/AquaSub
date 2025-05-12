@@ -158,6 +158,8 @@ print(One.hello())
 import sys
 print(sys.path)
 sys.path.append(r"D:\Python")
+from news import greet
+greet()
 
 # try:
 # except:
