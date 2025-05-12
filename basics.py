@@ -240,3 +240,5 @@ del newModel["modelYear"]
 #     file.write(f'\n {userinput}')
 # print("Apped text succesfully")
 
+def add(a,b):
+    return a+b
