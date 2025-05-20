@@ -133,47 +133,49 @@
 # print(Ba.__balance)
 #  Operator Overloading 
 
-class BankAccount:
-    def __init__(self,name,balance):
-        self.name=name
-        self.balance= balance
-    def __add__(self,other):
-        return print(f'{self.balance+other.balance}')
+# class BankAccount:
+#     def __init__(self,name,balance):
+#         self.name=name
+#         self.balance= balance
+#     def __sub__(self,other):
+#         return print(f'{self.balance-other.balance}')
 
-a1 = BankAccount("xyz",7000)
-a2 = BankAccount("abc",8000)
+# a1 = BankAccount("xyz",7000)
+# a2 = BankAccount("abc",8000)
 
-total = a1+a2
+# total = a1-a2
 
 # sub ,eq,mul,truediv,floordiv,mod,pow,ne,ge,le,gt,lt
 # Creating & Using Modules
-import basics
-print(basics.add(10,20))
+# import basics
+# print(basics.add(10,20))
 
 
-# Packages
-from Python import One
-print(One.hello())
-# Search Path 
-import sys
-print(sys.path)
-sys.path.append(r"D:\Python")
-from news import greet
-greet()
+# # Packages
+# from Python import One
+# print(One.hello())
+# # Search Path 
+# import sys
+# print(sys.path)
+# sys.path.append(r"D:\Python")
+# from news import greet
+# greet()
+
+# # try:
+# # except:
+# # else:
+# # finally:
 
 # try:
+#     a=10
+#     b=2
+#     a/b==0
 # except:
+#     print("Unable to divide")
 # else:
+#     print("Success")
 # finally:
+#     print("Code has Been Completed")
 
-try:
-    a=10
-    b=2
-    a/b==0
-except:
-    print("Unable to divide")
-else:
-    print("Success")
-finally:
-    print("Code has Been Completed")
+
 

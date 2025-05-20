@@ -242,3 +242,52 @@ del newModel["modelYear"]
 
 def add(a,b):
     return a+b
+
+
+import os
+print(os.getcwd())
+
+import sys
+print(sys.version) 
+
+from datetime import datetime
+print(datetime.now())
+
+import math
+print(math.sqrt(25))
+import methods as np
+
+arr2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+print(arr2d[0, 1])
+
+linspace_arr = np.linspace(0, 1, 5)
+print(linspace_arr)
+
+random_arr = np.random.rand(2, 2) 
+print(random_arr)
+
+eye = np.eye(3)
+print(eye)
+
+ones = np.ones((2, 3))
+print(ones)
+
+zero = np.zeros((3,4))
+print(zero)
+
+arr = np.array([1, 2, 3, 4, 5])
+print(arr[0:4])
+
+arr2d = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+print(arr2d[0:2,1:3])
+
+arr = np.arange(12)  # [0,1,2,...,11]
+
+# 3x4 matrix-ah maruradhu
+reshaped = arr.reshape(3, 4)
+
+print(f'Reshaped{reshaped}')
+
+# Flat pannradhu (1D-ah)
+flattened = reshaped.flatten()
+print(flattened)
