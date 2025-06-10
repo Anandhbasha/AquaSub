@@ -34,6 +34,7 @@ pdfData = pd.DataFrame(newData[1:],columns=newData[0])
 mixedData = pd.DataFrame(existingInfo[1:],columns=existingInfo[0])
 
 newComposed = pd.concat([pdfData,mixedData],ignore_index=True)
+# newComposed['S.no'] = range(1,len(newComposed)+1)
 newComposed.to_csv("exporeted.csv",index=False)
 print("Suceesfully Done")
 # pypdf2
