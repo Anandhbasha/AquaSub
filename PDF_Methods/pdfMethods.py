@@ -26,38 +26,38 @@ import pdfplumber
 
 # # PyPDF2 
 # # Read PDF & Extract Text
-# from PyPDF2 import PdfReader
+from PyPDF2 import PdfReader
 
-# reader = PdfReader(r"D:\AquaSub\New.pdf")
-# for page in reader.pages:
-#     print(page.extract_text())
+reader = PdfReader('New.pdf')
+for page in reader.pages:
+    print(page.extract_text())
 
 # # Length of Pages
 
-# reader = PdfReader(r"D:\AquaSub\New.pdf")
-# print(len(reader.pages))
+reader = PdfReader("New.pdf")
+print(len(reader.pages))
 
 # # Merge Multiple PDFs
-# from PyPDF2 import PdfMerger
+from PyPDF2 import PdfMerger
 
-# # pdfMerger Is Merger Tool
+# pdfMerger Is Merger Tool
 
-# merger = PdfMerger() 
-# merger.append(r"D:\AquaSub\New.pdf")
-# merger.append(r"C:\Users\Admin\Downloads\save.pdf")
-# merger.write("merged.pdf")
-# merger.close()
+merger = PdfMerger() 
+merger.append("New.pdf")
+merger.append(r"C:\Users\Admin\Downloads\save.pdf")
+merger.write("merged.pdf")
+merger.close()
 
 
 # #  Split PDF - Save One Page
-# from PyPDF2 import PdfWriter
+from PyPDF2 import PdfWriter
 
-# reader = PdfReader(r"D:\AquaSub\New.pdf")
-# writer = PdfWriter()
-# writer.add_page(reader.pages[0])
+reader = PdfReader("New.pdf")
+writer = PdfWriter()
+writer.add_page(reader.pages[0])
 
-# with open("page1.pdf", "wb") as f:
-#     writer.write(f)
+with open("page1.pdf", "wb") as f:
+    writer.write(f)
 
 
 # # Rotate PDF Pages
@@ -74,16 +74,16 @@ import pdfplumber
 
 # # Encryption
 
-# reader = PdfReader("rotated.pdf")
-# writer = PdfWriter()
+reader = PdfReader("New.pdf")
+writer = PdfWriter()
 
-# for page in reader.pages:
-#     writer.add_page(page)
+for page in reader.pages:
+    writer.add_page(page)
 
-# writer.encrypt("mypassword")
+writer.encrypt("mypassword")
 
-# with open("rotated.pdf", "wb") as f:
-#     writer.write(f)
+with open("rotated.pdf", "wb") as f:
+    writer.write(f)
 
 # # Decrypt Password
 
@@ -114,9 +114,9 @@ import pdfplumber
 #     # install pytesseract
 #     #install pillow
 #     # choco install tesseract
-# from PIL import Image
-# import pytesseract
-# pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-# img = Image.open(r"C:\Users\Admin\Downloads\Black And Gold Modern Birthday Party Invitation Portrait.png")
-# text = pytesseract.image_to_string(img)
-# print(text)
+from PIL import Image
+import pytesseract
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+img = Image.open(r"C:\Users\Admin\Downloads\Black And Gold Modern Birthday Party Invitation Portrait.png")
+text = pytesseract.image_to_string(img)
+print(text)
