@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CherryPy TODO List App</title>
+</head>
+<body>
+    <h1>CherryPy TODO List App</h1>
+    <input type="text" id="taskId" placeholder="Task ID">
+    <input type="text" id="taskValue" placeholder="Task Description">
+    <br><br>
+    <button onclick="createTask()">Add Task</button>
+    <button onclick="updateTask()">Update Task</button>
+    <button onclick="deleteTask()">Delete Task</button>
+    <button onclick="readTasks()">Show All Tasks</button>
+    <pre id="output"></pre>
+
+    <script>
+        function createTask() {
+            const id = document.getElementById('taskId').value;
+            const value = document.getElementById('taskValue').value;
+            fetch(`/create?item_id=${id}&value=${value}`)
+                .then(res => res.json())
+                .then(data => document.getElementById('output').innerText = JSON.stringify(data, null, 2));
+        }
+
+        function updateTask() {
+            const id = document.getElementById('taskId').value;
+            const value = document.getElementById('taskValue').value;
+            fetch(`/update?item_id=${id}&value=${value}`)
+                .then(res => res.json())
+                .then(data => document.getElementById('output').innerText = JSON.stringify(data, null, 2));
+        }
+
+        function deleteTask() {
+            const id = document.getElementById('taskId').value;
+            fetch(`/delete?item_id=${id}`)
+                .then(res => res.json())
+                .then(data => document.getElementById('output').innerText = JSON.stringify(data, null, 2));
+        }
+
+        function readTasks() {
+            fetch('/read')
+                .then(res => res.json())
+                .then(data => document.getElementById('output').innerText = JSON.stringify(data, null, 2));
+        }
+    </script>
+</body>
+</html>

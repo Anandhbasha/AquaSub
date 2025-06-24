@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask + JS CRUD Example</title>
+</head>
+<body>
+    <h2>Students List:</h2>
+    <ul id="studentList"></ul>
+
+    <h3>Add New Student</h3>
+    <input type="text" id="id" placeholder="ID"><br>
+    <input type="text" id="name" placeholder="Name"><br>
+    <input type="text" id="course" placeholder="Course"><br>
+    <button onclick="addStudent()">Add Student</button>
+
+    <script>
+        // Read All Students
+        fetch('http://127.0.0.1:5000/students')
+        .then(res => res.json())
+        .then(data => {
+            const list = document.getElementById('studentList');
+            data.forEach(student => {
+                const li = document.createElement('li');
+                li.textContent = `${student.id}: ${student.name} (${student.course})`;
+                list.appendChild(li);
+            });
+        });
+
+        // Add Student
+        function addStudent() {
+            const id = document.getElementById('id').value;
+            const name = document.getElementById('name').value;
+            const course = document.getElementById('course').value;
+
+            fetch('http://127.0.0.1:5000/students', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id: Number(id), name: name, course: course })
+            })
+            .then(res => res.json())
+            .then(data => {
+                alert(data.message);
+                location.reload(); // reload to show new data
+            });
+        }
+    </script>
+</body>
+</html>
