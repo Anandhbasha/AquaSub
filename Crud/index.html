@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CherryPy MongoDB CRUD</title>
+</head>
+<body>
+  <h2>User CRUD</h2>
+
+  <input type="text" id="name" placeholder="Enter Name">
+  <input type="text" id="email" placeholder="Enter Email">
+  <button onclick="addUser()">Add</button>
+
+  <ul id="userList"></ul>
+
+  <script>
+    async function loadUsers() {
+      const res = await fetch('/get_users');
+      const users = await res.json();
+      const list = document.getElementById('userList');
+      list.innerHTML = '';
+      users.forEach(u => {
+        const li = document.createElement('li');
+        li.innerHTML = `${u.userName} (${u.email}) 
+          <button onclick="deleteUser('${u._id}')">Delete</button>
+          <button onclick="editUser('${u._id}', '${u.userName}', '${u.email}')">Edit</button>`;
+        list.appendChild(li);
+      });
+    }
+
+    async function addUser() {
+      const userName = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      await fetch('/add_user', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ userName, email })
+      });
+      loadUsers();
+    }
+
+    async function deleteUser(id) {
+      await fetch(`/delete_user?user_id=${id}`);
+      loadUsers();
+    }
+
+    function editUser(id, name, email) {
+      const newName = prompt("Edit Name", name);
+      const newEmail = prompt("Edit Email", email);
+      if (newName && newEmail) {
+        fetch(`/update_user?user_id=${id}`, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ userName: newName, email: newEmail })
+        }).then(loadUsers);
+      }
+    }
+
+    loadUsers();
+  </script>
+</body>
+</html>
