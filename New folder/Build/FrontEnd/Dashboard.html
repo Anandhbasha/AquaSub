@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+</head>
+<body>
+  <h1>Welcome to the Dashboard!</h1>
+  <p id="user-info"></p>
+
+  <script>
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      alert("Please login first");
+      window.location.href = "login.html";
+    } else {
+      fetch("http://localhost:8000/protected", {
+        headers: { "Authorization": token }
+      })
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("user-info").innerText = 
+          data.user ? "Logged in as: " + data.user : "Access denied";
+      })
+      .catch(err => console.error(err));
+    }
+  </script>
+</body>
+</html>

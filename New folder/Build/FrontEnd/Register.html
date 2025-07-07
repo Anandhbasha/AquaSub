@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <style>
+    body { font-family: Arial; background: #f4f4f4; }
+    .register-box {
+      max-width: 300px; margin: 100px auto;
+      background: #fff; padding: 20px; border-radius: 10px;
+      box-shadow: 2px 2px 10px #aaa;
+    }
+    input, button {
+      width: 100%; padding: 10px; margin: 8px 0;
+    }
+    button {
+      background-color: #007bff; color: white; border: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="register-box">
+  <h2>Register</h2>
+  <input type="text" id="username" placeholder="Username" required />
+  <input type="password" id="password" placeholder="Password" required />
+  <button onclick="register()">Register</button>
+  <p id="msg" style="color:red;"></p>
+  <p>Already have an account? <a href="login.html">Login</a></p>
+</div>
+
+<script>
+  function register() {
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const msg = document.getElementById("msg");
+
+    if (!username || !password) {
+      msg.innerText = "All fields required!";
+      return;
+    }
+
+    fetch("http://localhost:5050/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password })
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.msg === "Registered successfully") {
+        msg.style.color = "green";
+        msg.innerText = "Registration successful! Redirecting to login...";
+        setTimeout(() => {
+          window.location.href = "login.html";
+        }, 1500);
+      } else {
+        msg.innerText = data.msg || "Registration failed";
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      msg.innerText = "Server error";
+    });
+  }
+</script>
+
+</body>
+</html>
